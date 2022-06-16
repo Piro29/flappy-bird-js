@@ -159,18 +159,19 @@ const gameOver = {
             context.fillText(`Score: ${player_score}`, this.x, 220)
             context.fillText(`HighScore: ${high_score}`, this.x, 250)
 
-            pipes.position = []
-            pipe_speed = 2
-            player_score = 0
-            bird.x = 150
-            bird.y = 225
-
             if (player_score > high_score) {
                 high_score = player_score
                 localStorage.setItem("flappy_highscore", player_score.toString())
             }
 
+        }
+        if (state.current === state.getReady) {
+            pipes.position = []
+            pipe_speed = 2
+            player_score = 0
 
+            bird.x = 150
+            bird.y = 225
         }
 
     }
